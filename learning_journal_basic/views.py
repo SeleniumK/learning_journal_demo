@@ -1,8 +1,14 @@
-from pyramid.view import view_config
+from pyramid.response import Response
+import os
+
+THIS_DIR = os.path.dirname(__file__)
 
 
-# @view_config(route_name='home', renderer='templates/mytemplate.pt')
-# def my_view(request):
-    # return {'project': 'learning_journal_basic'}
+def home_page(request):
+    """Render home page."""
+    imported_text = open(os.path.join(THIS_DIR, 'sample.txt')).read()
+    return Response("hello")
 
 
+def includeme(config):
+    config.add_view(home_page, route_name="home")

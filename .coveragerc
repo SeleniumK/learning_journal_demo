@@ -1,0 +1,3 @@
+[run]
+source = learning_journal_basic
+omit = learning_journal_basic/test*
